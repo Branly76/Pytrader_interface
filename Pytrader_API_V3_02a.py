@@ -1,5 +1,5 @@
 # Pytrader API for MT4 and MT5
-# Version V3_01
+# Version V3_02
 
 import socket
 import numpy as np
@@ -1734,7 +1734,7 @@ class Pytrader_API:
             self.command_return_error = ERROR_DICT[str(x[3])]
             self.command_OK = False
             self.order_return_message = ERROR_DICT[str(x[3])]
-            self.order_error = int(x[4])
+            self.order_error = int(x[3])
             return int(-1)
 
         self.command_OK = True
@@ -2155,7 +2155,7 @@ class Pytrader_API:
         self.command_OK = True
         return float(x[3])
         
-    def Get_logfile(self, date: datetime = datetime.now()) -> pd.DataFrame():
+    def Get_logfile(self, date: datetime = datetime.now()) -> pd.DataFrame:
         """
         Get logfile.
 
