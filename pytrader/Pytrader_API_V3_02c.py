@@ -1383,34 +1383,6 @@ class Pytrader_API:
 
         return deleted_orders
 
-        """ if ok==True and resp[0:5]=="F065^" and resp[-1]=="!":
-            nbr = resp[resp.index('^',3)+1:resp.index('^',5)]
-            if int(nbr) != 0:
-                df = pd.read_table(io.StringIO(resp[resp.index('^',5)+1:-1]), sep='$', lineterminator='^',
-                                header=None,
-                                names=np.array(self.columnsDeletedOrders[1:])[:,0],
-                                dtype=self.columnsDeletedOrders[1:]
-                ).fillna('')
-                # no time conversion
-                # df.open_time = pd.to_datetime(df.open_time, unit='s').dt.tz_localize(TZ_SERVER).dt.tz_convert(TZ_UTC)
-                # sort by open_time ascending
-                df.sort_values(by=['open_time'], ascending= True,inplace=True)
-                return df
-            else:
-                # return empty dataframe
-                return self.create_empty_DataFrame(
-                        self.columnsDeletedOrders, 'id')
-        else:
-            # error
-            if not ok:
-                self.command_OK = False
-                return None
-            else:
-                x = resp.split('^')
-                self.command_return_error = ERROR_DICT['99901']
-                self.command_OK = False
-                return None  """
-
     def Get_deleted_orders_within_window(self,
                                  date_from: datetime = datetime(2021, 3, 25, tzinfo = pytz.timezone("Etc/UTC")),
                                  date_to: datetime = datetime.now()) -> pd.DataFrame:
@@ -1486,34 +1458,6 @@ class Pytrader_API:
 
         return deleted_orders
 
-        """ if ok==True and resp[0:5]=="F064^" and resp[-1]=="!":
-            nbr = resp[resp.index('^',3)+1:resp.index('^',5)]
-            if int(nbr) != 0:
-                df = pd.read_table(io.StringIO(resp[resp.index('^',5)+1:-1]), sep='$', lineterminator='^',
-                                header=None,
-                                names=np.array(self.columnsDeletedOrders[1:])[:,0],
-                                dtype=self.columnsDeletedOrders[1:]
-                ).fillna('')
-                # no time conversion
-                # df.open_time = pd.to_datetime(df.open_time, unit='s').dt.tz_localize(TZ_SERVER).dt.tz_convert(TZ_UTC)
-                # sort by open_time ascending
-                df.sort_values(by=['open_time'], ascending= True,inplace=True)
-                return df
-            else:
-                # return empty dataframe
-                return self.create_empty_DataFrame(
-                        self.columnsDeletedOrders, 'id')
-        else:
-            # error
-            if not ok:
-                self.command_OK = False
-                return None
-            else:
-                x = resp.split('^')
-                self.command_return_error = ERROR_DICT[str(x[3])]
-                self.command_OK = False
-                return None """ 
-
     def Get_all_orders(self) -> pd.DataFrame:
         
         """
@@ -1572,34 +1516,6 @@ class Pytrader_API:
         self.command_OK = True
 
         return orders
-        
-        """ if ok==True and resp[0:5]=="F060^" and resp[-1]=="!":
-            nbr = resp[resp.index('^',3)+1:resp.index('^',5)]
-            if int(nbr) != 0:
-                df = pd.read_table(io.StringIO(resp[resp.index('^',5)+1:-1]), sep='$', lineterminator='^',
-                                header=None,
-                                names=np.array(self.columnsOpenOrders[1:])[:,0],
-                                dtype=self.columnsOpenOrders[1:]
-                ).fillna('')
-                # no time conversion
-                # df.open_time = pd.to_datetime(df.open_time, unit='s').dt.tz_localize(TZ_SERVER).dt.tz_convert(TZ_UTC)
-                # sort by open_time ascending
-                df.sort_values(by=['open_time'], ascending= True,inplace=True)
-                return df
-            else:
-                # return empty dataframe
-                return self.create_empty_DataFrame(
-                        self.columnsOpenOrders, 'id')
-        else:
-            # error
-            if not ok:
-                self.command_OK = False
-                return None
-            else:
-                x = resp.split('^')
-                self.command_return_error = ERROR_DICT['99901']
-                self.command_OK = False
-                return None  """
     
     def Get_all_open_positions(self) -> pd.DataFrame:
 
@@ -1668,34 +1584,6 @@ class Pytrader_API:
         self.command_OK = True
 
         return positions
-
-        """ if ok==True and resp[0:5]=="F061^" and resp[-1]=="!":
-            nbr = resp[resp.index('^',3)+1:resp.index('^',5)]
-            if int(nbr) != 0:
-                df = pd.read_table(io.StringIO(resp[resp.index('^',5)+1:-1]), sep='$', lineterminator='^',
-                                header=None,
-                                names=np.array(self.columnsOpenPositions[1:])[:,0],
-                                dtype=self.columnsOpenPositions[1:]
-                ).fillna('')
-                # no time conversion
-                # df.open_time = pd.to_datetime(df.open_time, unit='s').dt.tz_localize(TZ_SERVER).dt.tz_convert(TZ_UTC)
-                # sort by open_time ascending
-                df.sort_values(by=['open_time'], ascending= True,inplace=True)
-                return df
-            else:
-                # return empty dataframe
-                return self.create_empty_DataFrame(
-                        self.columnsOpenPositions, 'id') 
-        else:
-            # error
-            if not ok:
-                self.command_OK = False
-                return None
-            else:
-                x = resp.split('^')
-                self.command_return_error = ERROR_DICT['99901']
-                self.command_OK = False
-                return None  """ 
 
     def Get_closed_positions_within_window(self,
                                  date_from: datetime = datetime(2021, 3, 20, tzinfo = pytz.timezone("Etc/UTC")),
@@ -1773,33 +1661,6 @@ class Pytrader_API:
 
         return closed_positions
 
-        """ if ok==True and resp[0:5]=="F062^" and resp[-1]=="!":
-            nbr = resp[resp.index('^',3)+1:resp.index('^',5)]
-            if int(nbr) != 0:
-                df = pd.read_table(io.StringIO(resp[resp.index('^',5)+1:-1]), sep='$', lineterminator='^',
-                                header=None,
-                                names=np.array(self.columnsClosedPositions[1:])[:,0],
-                                dtype=self.columnsClosedPositions[1:]
-                ).fillna('')
-                # no time conversion
-                # df.open_time = pd.to_datetime(df.open_time, unit='s').dt.tz_localize(TZ_SERVER).dt.tz_convert(TZ_UTC)
-                # sort by open_time ascending
-                df.sort_values(by=['open_time'], ascending= True,inplace=True)
-                return df
-            else:
-                # return empty dataframe
-                return self.create_empty_DataFrame(
-                        self.columnsClosedPositions, 'id') 
-        else:
-            # error
-            if not ok:
-                self.command_OK = False
-                return None
-            else:
-                x = resp.split('^')
-                self.command_return_error = ERROR_DICT['99901']
-                self.command_OK = False
-                return None  """    
 
     def Get_all_closed_positions(self) -> pd.DataFrame:
         """ 
