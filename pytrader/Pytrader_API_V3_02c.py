@@ -1515,7 +1515,7 @@ class Pytrader_API:
 
             rowOrder = {
                     'ticket': int( y[0]), 'instrument': self.get_universal_instrument_name(str(y[1])), 'order_type': str(y[2]), 'magic_number': int(y[3]), 
-                    'volume': float( y[4]), 'open_price': float( y[5]), 'stop_loss': float( y[6]), 'take_profit': float( y[7]), 'comment': str(y[8])}
+                    'volume': float( y[4]), 'open_price': float( y[5]), 'open_time': int(y[6]), 'stop_loss': float( y[7]), 'take_profit': float( y[8]), 'comment': str(y[9])}
             df_add = pd.DataFrame([rowOrder])
             orders = pd.concat([orders, df_add], ignore_index=True)
 
